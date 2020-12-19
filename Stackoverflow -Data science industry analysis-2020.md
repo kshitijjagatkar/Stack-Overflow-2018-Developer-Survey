@@ -1,9 +1,9 @@
-## Stack Overflow 2018 Developer Survey:  The Data Science Industry Analysis for Data Scientist Machine learning specialist
+## Stack Overflow 2020 Developer Survey:  The Data Science Industry Analysis for Data Scientist Machine learning specialist
 
 Each year, Stack Overflow publish survey analysis about the developer community about everything from their favorite technologies to their job preferences.
 
 The survey is very useful for the developer community, so I think to increase the benefits by taking a part of the survey which interested with Data Scientists and Machine Learning specialist to analysis it because the statistics can tell us more about our community such as Geographic, Demographic, Industrial and behaviors Analysis. Let's Begin and Have Fun!
-To see the data click [here](https://www.kaggle.com/stackoverflow/stack-overflow-2018-developer-survey)
+To see the data click [here](https://insights.stackoverflow.com/survey/2020)
 
 ### Inspiration
 
