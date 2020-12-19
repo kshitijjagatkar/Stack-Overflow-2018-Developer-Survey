@@ -24,8 +24,8 @@ There are 2 notebooks and some images available here to showcase work related to
 
 ## Results
 
-The main findings of the code can be found at the post available [here]().
+The main findings of the code(Blog about this survey) can be found at the post available [here](https://kshitijjagatkar505.medium.com/2020-data-scientist-industry-analysis-8c951c2384e8).
 
 ## Licensing, Authors, Acknowledgements
 
-Must give credit to Stack Overflow for the data. You can find the Licensing for the data and other descriptive information at the Kaggle link available [here](Stack Overflow 2020 Developer Survey). Otherwise, feel free to use the code here as you would like!
+Must give credit to Stack Overflow for the data. You can find the Licensing for the data and other descriptive information at the their official link available [here](https://insights.stackoverflow.com/survey/2020). Otherwise, feel free to use the code here as you would like!
