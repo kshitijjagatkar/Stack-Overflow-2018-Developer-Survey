@@ -5,8 +5,16 @@ Each year, Stack Overflow publish survey analysis about the developer community 
 The survey is very useful for the developer community, so I think to increase the benefits by taking a part of the survey which interested with Data Scientists and Machine Learning specialist to analysis it because the statistics can tell us more about our community such as Geographic, Demographic, Industrial and behaviors Analysis. Let's Begin and Have Fun!
 To see the data click [here](https://insights.stackoverflow.com/survey/2020)
 
-### Inspiration
+## Business understanding
 
+    To understand the purpose of this project I have mentioned some of the objectives and requirements of the business
+    understanding which is our main goal we want to achieve. This project follows the CRISP-DM process which is very helpful
+    for to understand and achieve the the complete data science life cycle.
+
+### Objectives and requirements
+     There are three objective's Geographic, Demographic and the Industrial analysis with our requirements or question
+     we are having.
+     
 **Geographic Analysis:**
 
     1.Top Countries having Highest Number of DS/ML Specialists.
@@ -28,7 +36,11 @@ To see the data click [here](https://insights.stackoverflow.com/survey/2020)
     
     
 
-#### Let's Begin with importing required Library
+## Data Understanding
+    
+    Data Understanding is the first step we are going to take. Indentify, Collect, and Analyze the data these three tasks we       are going to do.
+
+#### Let's Begin with importing required Libraries
 
 
 ```python
@@ -39,9 +51,15 @@ import matplotlib.pyplot as plt     #data visualization
 import seaborn as sns
 %matplotlib inline
 
+from sklearn.linear_model import LinearRegression
+from sklearn.model_selection import train_test_split         #Modeling
+from sklearn.metrics import r2_score, mean_squared_error
+
 pd.set_option('display.max_columns',None)  # to display all columns in data frame
 pd.set_option('display.max_colwidth', None) # to display all content of the output
 ```
+
+### Data Gather
 
 
 ```python
@@ -280,11 +298,13 @@ df.shape #rows and columns
 
 
 
-#### Make New Data Frame(ds) for Data science and ML industry 
+### Identify
+
+Identify the role as Data scientist or Machine learning specialists. And make new Data Frame(ds) for Data science and ML industry
 
 
 ```python
-print(df.DevType.unique())  #here we can find devloper type as data scientist and ml specialist
+print(df.DevType.unique())  #here we can find all devloper's type. we can see data scientist and ml specialist as one column
 ```
 
     ['Developer, desktop or enterprise applications;Developer, full-stack'
@@ -539,15 +559,17 @@ country = ds.Country.value_counts().head(10)  # chosing top 10
 x = country.index               #coping column names
 y = country/country.sum() *100  #calculating percentage 
 
-f,ax1 = plt.subplots(figsize=(20,7)) #plotting graph
+f,ax1 = plt.subplots(figsize=(15,5)) #plotting graph
 sns.barplot(x=x, y=y, ax=ax1);
 ax1.set(xlabel = 'Countries', ylabel = 'Percentage %', title = "top countries having data scientists and machine learning specialist");
 
 ```
 
 
-![png](output_11_0.png)
+![png](output_14_0.png)
 
+
+   *You can see clear picture that Unites States still stand out at the number one position with 36% around for the role as a Data scientists and machine learning specialists. Well, the hype went really fast and with that India grabbed 2nd position producing little more than 20% which, In 2018 India no where around top 5. Followed by United Kingdom and Germany with 16% and 8% respectively. then the trend is almost similar by the Australia, France, Canada, Netherlands, Poland, Switzerland.*
 
 ## Demographic Analysis for Data Scientist / Machine Learning Specialist
 
@@ -586,8 +608,10 @@ plt.pie(gender,labels=labels,autopct='%.1f%%',pctdistance=0.75,explode=[0.07]*3,
 ```
 
 
-![png](output_14_0.png)
+![png](output_18_0.png)
 
+
+ *Needs certainly attention here, Also if you observe the overall industry you will find somewhat similar or slightly improved numbers. This is like you will find more male chefs than females and also more female teachers than male. There are 17% woman who work as data scientists or ml specialists. 1.3% include non-binary, genderqueer or those who did not confirm. And 81% male which was 5% lesser compared to 2018.*
 
 ### 2. Age of The Data Scientist / Machine Learning Specialist
 
@@ -606,8 +630,10 @@ plt.show()
 ```
 
 
-![png](output_16_0.png)
+![png](output_21_0.png)
 
+
+*Little surprised? Yes, the age which is having the most data scientists is 26 years old and also wait what! 15 year old yeah you might be picturizing the small kid having spectacles with high intelligence blowing out minds of some news channel’s anchor then yeah they are the younger ones fall into this this range. Shout-out to old ones who are still serving the industries at 63.*
 
 ### 3. The Highest Level of Formal Education for the Data Scientists
 
@@ -626,8 +652,10 @@ sns.barplot(x=x, y=y, ax=ax1);
 ```
 
 
-![png](output_18_0.png)
+![png](output_24_0.png)
 
+
+*Well well, Masters they say, With more than 40% who are data scientists / machine learning specialist has completed their Master’s degree in their respective major's. Followed by Bachelor’s degree people scoring above 30% and then some Ph.D. holders. And the last ones entering with their school bags scoring below one percent.*
 
 ### 4. The Major Field of Study that the Data Scientists graduated from it
 
@@ -650,8 +678,10 @@ plt.show()
 ```
 
 
-![png](output_20_0.png)
+![png](output_27_0.png)
 
+
+*This one is lil obvious, people who completed their formal education has these majors. Computer science people holds the 1st position, followed by the essential Mathematics and Statistics people. Followed folks who wish they could have had their major in computer science or end up taking decision about their career in this field. And folks, who are poet, philosopher, nurse, some artists, musicians and lot many welcome to the data science world.*
 
 ## The Industrial Analysis
 
@@ -669,8 +699,10 @@ plt.pie(x = portion, data = lang, labels = lang.index, autopct = '%.1f%%', pctdi
 ```
 
 
-![png](output_22_0.png)
+![png](output_30_0.png)
 
+
+*The pythonist or pythonior haha..felt good? One of the most loved language too yeah 27% of the total pie. Also do not forgot rest of the portion is covered by the other languages. Never one is enough, SQL stand out at the 2nd most language used by the data scientists/ml specialists. Other big players are also there manage to get some what similar results. Remember this is only for this particular role.*
 
 ###  2. Overall coding experience as a Data scientist/Machine learning specialist
 
@@ -743,8 +775,10 @@ ax1.set(xlabel = 'Coding experience in years', ylabel = 'Percentage %',
 ```
 
 
-![png](output_25_0.png)
+![png](output_34_0.png)
 
+
+*This coding experience is considered overall(Since how many years they have been coding). By observing we can say that most data scientists has coding experience of 5 years. There are also 2–3% of people who has less than a year of coding experience and working as a DS/ML sp. And some 1 percent people who has 50 plus experience in coding.*
 
 ### 3. Job satisfaction as a Data scientist/Machine learning specialist
 
@@ -756,8 +790,10 @@ plt.pie(x=j_sat, labels = j_sat.index, autopct = '%.1f%%', shadow = True, data =
 ```
 
 
-![png](output_27_0.png)
+![png](output_37_0.png)
 
+
+*Here we can say the “sexiest job” statement was lot a lie, 42.6% are overwhelmed by their job. If we combine the slightly satisfied and very satisfied then there will be more satisfied people than compare to slightly dissatisfied and very dissatisfied combinedly. there are almost 10% people who were not willing to say anything about their job satisfaction*
 
 ### 4. Countries with highest salaries of data scientists/ML specialists
 
@@ -777,7 +813,7 @@ ax1.set(xlabel = 'Country', ylabel = 'Avg Salary per year in $',
 ```
 
 
-![png](output_29_0.png)
+![png](output_40_0.png)
 
 
 
@@ -855,8 +891,10 @@ plt.title("The salary of ds/ml sp. for the United States");
 ```
 
 
-![png](output_31_0.png)
+![png](output_42_0.png)
 
+
+*These are the top 10 countries who pays very high salaries amongst the other. The home of the mighty giant companies “United States” is one of the very top of all in terms of paying the high amount to their employees. If we look at the broad spectrum of salaries of US, there are very few like very few people who sit at the top with up to 2M dollar per year salary and lil more people with salaries ranging from 1M-1.75M dollar per year. And rest of the people sits at the average of 210k dollar per year. It’s five times of a average salary in the US which is around $50,000pa.*
 
 ###  5. Coding as a hobby
 
@@ -870,10 +908,20 @@ plt.pie(x=hobby, labels = hobby.index, autopct = '%.1f%%', shadow = True, data =
 ```
 
 
-![png](output_33_0.png)
+![png](output_45_0.png)
 
 
-## Modeling
+*Well this one is self explanatory, Almost 30% folks doesn't like to code can we say? hmm, I like to code but it’s not my hobby.*
+
+## Data preparation
+    
+    Also called as data munging, prepare the final data set for modeling. it includes following tasks:
+    
+    1.Select
+    2.Clean
+    3.Construct
+    4.Integrate
+    5.Format
 
 
 ```python
@@ -906,7 +954,7 @@ for var in vars_with_na:
 
 ```python
 # leaving the respondent column all other columns contains null data
-# Treating null data by type wise let's check first with categorical column
+# Treating null data by data-type wise let's check first with categorical column
 
 cat_df = num_vars.select_dtypes(include = 'O').copy()  #Identify categorical columns
 cat_df.head()
@@ -991,12 +1039,15 @@ cat_df.head()
 
 
 ```python
-# Replace NA with Mode of a column in categorical variables, that's one way to do it.
+"""In the above code we segregated the categorical columns and we can see that there are null valuesin the columns.
+   So what we can do? one way we can do is filling the most frequent value in the column at the place of null value.
+   1. Replace NA with Mode of a column in categorical variables."""
 
 for col in cat_df.columns:
-    #calculating and storing the each mode value of the column
+    #collecting and storing the most frequent value of the column in new variable by using .mode()
     mode_val = cat_df[col].mode()[0]
-    #Filling the mode value at null values
+    
+    #Filling the mode value at null values by using .fillna() method
     cat_df[col].fillna(mode_val, inplace = True)
 
 cat_df.head()
@@ -1086,8 +1137,13 @@ def create_dummy_df(cat_df,cat_cols):
     
     for col in cat_cols:
         try:
-            # remove all the original columns in cat_df
-            # dummy columns for each of the categorical columns in cat_df
+            """ Now we got filled all values at each column,now our task is to convert those text data into numrical.
+                why? ML need 0's and 1's data to compute so it is must that we should get it convert into numerical one.
+                1. Remove all the original columns in cat_df.why? Our goal is to create Quantative data.
+                2. Dummy columns for each of the categorical columns in cat_df, this way we will get quant data.
+                   By using drop method we are dropping original data and using pandas get_dummy method we dummy
+                   all categorical data into numrical form"""
+            
             cat_df = pd.concat([cat_df.drop(col, axis=1),pd.get_dummies(data = cat_df[col], prefix=[col], 
                                                                         prefix_sep='_', 
                                                                         drop_first=True,dummy_na=False)],axis=1)
@@ -1115,7 +1171,7 @@ df_new.shape  #shape of all categorical columns
 
 ```python
 quant_var = num_vars.select_dtypes(exclude = 'O')
-quant_var.isnull().sum() #null values. as Respondent column act an index it does not have any missing values.
+quant_var.isnull().sum() #Look at the respondent result it has no null values, So we don't have to worry about that column.
 ```
 
 
@@ -1129,11 +1185,14 @@ quant_var.isnull().sum() #null values. as Respondent column act an index it does
 
 
 ```python
-# Replace NA with mean
+"""As these are numerical columns we don't need to convert into anything else.
+   we can see there are 141 missing values in the output variable or our target variable(ConvertedComp) which is salary.
+   And we can not proceed with it. So one way we can treat them is to fill those values with the average of the column.
+   Notice that we have used lambda funcation. and used .apply() method to apply the lambda function."""
 
 fill_mean = lambda col: col.fillna(col.mean()) #created a lambda function to fill avg values to columns
 
-var_mean = num_vars[['Respondent','ConvertedComp']].apply(fill_mean) #note will only applies to salary
+var_mean = num_vars[['Respondent','ConvertedComp']].apply(fill_mean) #here we applied the function
 var_mean.shape #shape of numrical columns
 ```
 
@@ -1146,9 +1205,9 @@ var_mean.shape #shape of numrical columns
 
 
 ```python
-#Putting all to gether
+#Putting all to gether. Now we got our data cleaned properly we should combine them.
 
-df_final = pd.concat([var_mean,df_new],axis=1)
+df_final = pd.concat([var_mean,df_new],axis=1) #Combined using .concat() method.
 df_final.shape # shape of categorical + numerical columns
 ```
 
@@ -1159,14 +1218,10 @@ df_final.shape # shape of categorical + numerical columns
 
 
 
-### Modeling
+## Modeling
 
 
 ```python
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import r2_score, mean_squared_error
-
 """  
     To build a clean_fit model we should start by doing:
     
@@ -1215,4 +1270,8 @@ print("the rsquared on training data is {}. \n & the rsquared on the test data i
      & the rsquared on the test data is -4.7787615892376845e+29.
     
 
+## Evaluate
+
 As you can see our model perform well on the training data but on the test data it perform worst. So this is clearly an example of "Overfitting" and we should do some more work to tackle this situation.
+
+I have talked more in detail about the analysis of our requirements in [this](https://kshitijjagatkar505.medium.com/2020-data-scientist-industry-analysis-8c951c2384e8) blog. feel free to read it
