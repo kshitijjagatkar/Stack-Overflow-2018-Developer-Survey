@@ -1,4 +1,4 @@
-# Stack-Overflow-2018-Developer-Survey
+# Stack Overflow 2020 Developer Survey
 The Data Science Industry Analysis for Data Scientist Machine learning specialist
 
 1. Installation
@@ -28,4 +28,4 @@ The main findings of the code can be found at the post available [here]().
 
 ## Licensing, Authors, Acknowledgements
 
-Must give credit to Stack Overflow for the data. You can find the Licensing for the data and other descriptive information at the Kaggle link available [here](https://www.kaggle.com/stackoverflow/stack-overflow-2018-developer-survey). Otherwise, feel free to use the code here as you would like!
+Must give credit to Stack Overflow for the data. You can find the Licensing for the data and other descriptive information at the Kaggle link available [here](Stack Overflow 2020 Developer Survey). Otherwise, feel free to use the code here as you would like!
