@@ -12,7 +12,8 @@ There should be no necessary libraries to run the code here beyond the Anaconda 
 
 ## Project Motivation
 
-For this project, I was interestested in using Stack Overflow data from 2018 to better understand:
+For this project, I was interestested in using Stack Overflow developers survey 2020 to better understand:
+ I have followed CRISP-DM process to guid myself and to better understand the life cycle of the data science
 
 1. Geographic Analysis for Data Scientist / Machine Learning Specialist.
 2. Demographic Analysis for Data Scientist / Machine Learning Specialist.
@@ -20,7 +21,7 @@ For this project, I was interestested in using Stack Overflow data from 2018 to 
 
 ## File Descriptions
 
-There are 2 notebooks and some images available here to showcase work related to the above questions. Each of the notebooks is exploratory in searching through the data pertaining to the questions showcased by the notebook title. Markdown cells were used to assist in walking through the thought process for individual steps.
+There are 2 notebooks and some images available to showcase work related to the above analysis. Each of the notebooks is exploratory in searching through the data pertaining to the questions showcased by the notebook title. Markdown cells were used to assist in walking through the thought process for individual steps.
 
 ## Results
 
